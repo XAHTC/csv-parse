@@ -62,6 +62,7 @@ function App() {
     return (
         <div className="container">
             <CSVReader
+                label="Import Users"
                 parserOptions={{ delimiter: ';' }}
                 onFileLoaded={(data) => formatData(data)}
             />

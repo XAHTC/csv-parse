@@ -22,3 +22,18 @@ code {
     background-color: lightcoral;
     border: 2px solid darkred;
 }
+
+input.csv-input {
+    display: none;
+}
+
+label.csv-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #92c47d;
+    padding: 0.5rem 4rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}

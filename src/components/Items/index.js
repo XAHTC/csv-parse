@@ -42,8 +42,8 @@ const useStyles = makeStyles({
 const Items = ({ data }) => {
     const classes = useStyles();
 
-    const newData = data.map((item, index) => {
-        const cleanPhone = item[2].replace(/^(\+1|^1)/, ''); //Clean up the phone number
+    const duplicatedData = data.map((item, index) => {
+        const cleanPhone = item[2].replace(/^(\+1|^1)/, '');
         const duplicatedIDs = [];
         data.forEach((element, ind) => {
             if (index !== ind && (element[2].includes(cleanPhone) || item[3] === element[2])) {
@@ -57,7 +57,7 @@ const Items = ({ data }) => {
         return item;
     });
 
-    return newData.map((item, idx) => {
+    return duplicatedData.map((item, idx) => {
         if (idx === 0) return null;
         return (
             <TableRow key={idx}>
