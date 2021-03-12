@@ -132,14 +132,8 @@ export const checkYearlyIncome = (sum) => {
 };
 
 export const formatPhone = (phone) => {
-    if (phone.length === 10) {
-        return `+1${phone}`;
-    }
-    if (phone.length === 11) {
-        return `+${phone}`;
-    }
-
-    return phone;
+    const cleanPhone = phone.replace(/^(\+1|^1)/, '').trim();
+    return `+1${cleanPhone}`;
 };
 
 export const formatChildren = (isChildren) => {

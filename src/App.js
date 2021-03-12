@@ -48,7 +48,6 @@ function App() {
     };
 
     if (data.length > 0) {
-        console.log('CHECK DATA', data);
         const keys = [...data[0]].map((item) => item.toLowerCase());
         const isFullName = keys.includes('full name');
         const isPhone = keys.includes('phone');

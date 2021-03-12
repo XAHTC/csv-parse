@@ -45,15 +45,18 @@ const Items = ({ data }) => {
     const duplicatedData = data.map((item, index) => {
         const cleanPhone = item[2].replace(/^(\+1|^1)/, '');
         const duplicatedIDs = [];
-        data.forEach((element, ind) => {
-            if (index !== ind && (element[2].includes(cleanPhone) || item[3] === element[2])) {
+        data.forEach((element, idx) => {
+            if (index !== idx && (element[2].includes(cleanPhone) || item[3] === element[2])) {
                 duplicatedIDs.push(element[0]);
             }
-            if (index !== ind && (element[3] === item[3] || item[3] === element[3])) {
+            if (
+                index !== idx &&
+                (element[3].toLowerCase() === item[3].toLowerCase() || item[3] === element[3])
+            ) {
                 duplicatedIDs.push(element[0]);
             }
         });
-        index && item.push(duplicatedIDs);
+        index && item.push([...new Set(duplicatedIDs)]);
         return item;
     });
 
