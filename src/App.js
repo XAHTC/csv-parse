@@ -47,6 +47,8 @@ function App() {
         setData(newData);
     };
 
+    console.log(data);
+
     if (data.length > 0) {
         const keys = [...data[0]].map((item) => item.toLowerCase());
         const isFullName = keys.includes('full name');
@@ -62,7 +64,7 @@ function App() {
         <div className="container">
             <CSVReader
                 label="Import Users"
-                parserOptions={{ delimiter: ';' }}
+                parserOptions={{ delimiter: ';', skipEmptyLines: true }}
                 onFileLoaded={(data) => formatData(data)}
             />
             <TableContainer className={classes.tablecontainer} component={Paper}>
